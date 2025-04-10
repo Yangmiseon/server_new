@@ -1,10 +1,9 @@
-package kr.hhplus.be.server.point;
+package kr.hhplus.be.server.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter

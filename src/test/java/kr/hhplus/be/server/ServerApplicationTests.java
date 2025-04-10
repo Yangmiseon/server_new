@@ -1,18 +1,17 @@
 package kr.hhplus.be.server;
 
-import kr.hhplus.be.server.point.PointEntity;
-import kr.hhplus.be.server.point.PointHistoryEntity;
-import kr.hhplus.be.server.point.PointService;
-import kr.hhplus.be.server.point.PointRepository;
-import kr.hhplus.be.server.point.PointHistoryRepository;
-import kr.hhplus.be.server.point.TransactionType;
+import kr.hhplus.be.server.domain.PointEntity;
+import kr.hhplus.be.server.domain.PointHistoryEntity;
+import kr.hhplus.be.server.application.PointService;
+import kr.hhplus.be.server.infrastructure.PointRepository;
+import kr.hhplus.be.server.infrastructure.PointHistoryRepository;
+import kr.hhplus.be.server.domain.TransactionType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import org.springframework.context.annotation.Import;
 
 import java.time.LocalDateTime;
 import java.util.Date;

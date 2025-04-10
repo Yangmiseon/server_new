@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.point;
+package kr.hhplus.be.server.domain;
 /**
  * 포인트 트랜잭션 종류
  * - CHARGE : 충전

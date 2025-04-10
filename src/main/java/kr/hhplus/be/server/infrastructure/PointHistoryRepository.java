@@ -1,7 +1,12 @@
-package kr.hhplus.be.server.point;
+package kr.hhplus.be.server.infrastructure;
 
+import kr.hhplus.be.server.application.PointService;
+import kr.hhplus.be.server.domain.PointEntity;
+import kr.hhplus.be.server.domain.PointHistoryEntity;
+import kr.hhplus.be.server.domain.TransactionType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;

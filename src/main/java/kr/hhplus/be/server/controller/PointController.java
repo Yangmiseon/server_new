@@ -1,14 +1,17 @@
-package kr.hhplus.be.server.point;
+package kr.hhplus.be.server.controller;
 
-import org.springframework.web.bind.annotation.*;
+import kr.hhplus.be.server.application.PointService;
+import kr.hhplus.be.server.domain.PointEntity;
+import kr.hhplus.be.server.domain.PointHistoryEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/point")
-public class PointController {
+class PointController {
     private static final Logger logger = LoggerFactory.getLogger(PointController.class);
     private PointService pointService;
 
@@ -17,11 +20,21 @@ public class PointController {
         this.pointService = pointService;
     }
 
+    //포인트 조회
     @GetMapping("/{userId}/pointTotal")
     public long  getUserPoint(@PathVariable String userId){
+
         return pointService.getUserPoint(userId);
     }
 
+    //포인트 이력 조회
+    @GetMapping("/{userId}/pointHistory")
+    public List<PointHistoryEntity> getPointHistoryEntityList (@PathVariable String userId){
+
+        return pointService.getUserPointHistory(userId);
+    }
+
+    //포인트 충전
     @PatchMapping("{userId}/charge")
     public PointEntity charge(
             @PathVariable String userId,

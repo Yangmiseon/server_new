@@ -1,10 +1,8 @@
-package kr.hhplus.be.server.point;
+package kr.hhplus.be.server.infrastructure;
 
+import kr.hhplus.be.server.domain.PointEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.awt.*;
-import java.time.LocalDateTime;
 
 @Repository
 public interface  PointRepository extends JpaRepository<PointEntity, String> {

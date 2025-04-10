@@ -1,8 +1,11 @@
-package kr.hhplus.be.server.point;
+package kr.hhplus.be.server.application;
 
+import kr.hhplus.be.server.domain.PointHistoryEntity;
+import kr.hhplus.be.server.infrastructure.PointHistoryRepository;
+import kr.hhplus.be.server.infrastructure.PointRepository;
+import kr.hhplus.be.server.domain.TransactionType;
 import org.springframework.stereotype.Service;
-import kr.hhplus.be.server.point.PointEntity;
-import kr.hhplus.be.server.point.PointRepository;
+import kr.hhplus.be.server.domain.PointEntity;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,6 +22,7 @@ public class PointService {
         this.pointRepository = pointRepository;
         this.pointHistoryRepository = pointHistoryRepository;
     }
+
     //userId로 현재 포인트 조회
     public long getUserPoint(String userId) {
         PointEntity point = pointRepository.findByUserId(userId);
