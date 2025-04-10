@@ -1,16 +1,17 @@
 package kr.hhplus.be.server.domain;
 import kr.hhplus.be.server.application.ItemService;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 import java.util.Date;
 import java.util.List;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class ItemTest {
-    @MockBean
+    @Mock
     private ItemService itemService;
 
     @Test

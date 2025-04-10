@@ -8,11 +8,9 @@ import java.util.List;
 
 @Service
 public class ItemService {
-    private final ItemEntity itemEntity;
     private final ItemRepository itemRepository;
 
-    public ItemService(ItemEntity itemEntity, ItemRepository itemRepository) {
-        this.itemEntity = itemEntity;
+    public ItemService( ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
 

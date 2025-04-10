@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @Entity
-@Table(name ="point")
+@Table(name ="item")
 public class ItemEntity {
 
     @Id
