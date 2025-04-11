@@ -1,10 +1,7 @@
 package kr.hhplus.be.server.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -12,26 +9,28 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder(toBuilder = true)
 @Table(name ="coupon")
 public class CouponEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    int id;
+    private int id;
 
-    String couponId;
+    private String couponId;
 
-    String couponName;
+    private String couponName;
 
-    String couponDesc;
+    private String couponDesc;
 
-    CouponType type;
+    private CouponType type;
 
-    LocalDateTime issueDate;
+    private LocalDateTime issueDate;
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    UserEntity userId;
+    private UserEntity userId;
 }

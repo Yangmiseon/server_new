@@ -2,7 +2,7 @@ package kr.hhplus.be.server.domain;
 
 import java.util.Date;
 
-public class Order {
+public class OrderEntity {
 
     String orderId;
     Date orderDate;

@@ -12,8 +12,8 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @Entity
-@Table(name ="pay")
-public class Payment {
+@Table(name ="payment")
+public class PaymentEntity {
     /*주문이 진행되면 결제로 온다.
     1. 쿠폰여부 확인한다.
     2. 결제한다.
@@ -38,9 +38,6 @@ public class Payment {
 
     @Column(nullable = false)
     long finalPrice;
-
-    @Column(nullable = false)
-    long 
 
     @Column(nullable = false)
     String payStatus;
