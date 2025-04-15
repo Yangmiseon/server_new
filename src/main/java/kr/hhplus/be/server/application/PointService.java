@@ -64,8 +64,7 @@ public class PointService {
         pointHistoryRepository.save(historySave);
 
         // 포인트 업데이트
-        PointEntity pointEntity = new PointEntity();
-        pointEntity.setUserId(userId);
+        PointEntity pointEntity = pointRepository.findByUserId(userId);
         pointEntity.setPointTotal(amount);
         return pointRepository.save(pointEntity);
     }
