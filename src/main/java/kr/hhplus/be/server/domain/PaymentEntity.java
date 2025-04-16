@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
+
 @Getter
 @Setter
 @ToString
@@ -20,25 +25,34 @@ public class PaymentEntity {
     * */
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    int id;
-
     @Column(nullable = false)
     String payId;
+
+    @PrePersist
+    //ID생성
+    public void generateId() {
+        if (payId == null) {
+            String yearMonth = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMM"));
+            String uuidPart = UUID.randomUUID().toString().replace("-", "").substring(0, 8);
+            this.payId = "PAY" + yearMonth + "-" + uuidPart;
+        }
+    }
 
     @Column(nullable = false)
     String orderId;
 
     @Column(nullable = false)
+    String userCouponYN;
+
     String userCouponId;
 
     @Column(nullable = false)
-    long amount;
+    BigDecimal pointTotal; //사용자가 사용할 포인트
 
     @Column(nullable = false)
-    long finalPrice;
+    BigDecimal finalPrice;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    String payStatus;
+    PayStatusType type;
 }

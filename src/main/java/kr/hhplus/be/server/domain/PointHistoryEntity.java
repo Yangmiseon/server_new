@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ public class PointHistoryEntity {
     @Column(nullable = false)
     TransactionType type;
 
-    long amount;
+    BigDecimal amount;
 
     LocalDateTime currentTime;
 }

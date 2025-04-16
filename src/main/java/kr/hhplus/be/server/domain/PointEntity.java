@@ -3,6 +3,7 @@ package kr.hhplus.be.server.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
@@ -17,10 +18,10 @@ public class PointEntity {
     String userId;
 
     @Column(nullable = false)
-    long amount;
+    BigDecimal amount;
 
     @Column(nullable = false)
-    long pointTotal;
+    BigDecimal pointTotal;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
