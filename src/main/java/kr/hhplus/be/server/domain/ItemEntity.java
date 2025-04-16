@@ -16,7 +16,6 @@ import jakarta.persistence.Id;
 public class ItemEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     String itemId;
 

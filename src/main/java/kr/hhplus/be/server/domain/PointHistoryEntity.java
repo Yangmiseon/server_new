@@ -28,7 +28,6 @@ public class PointHistoryEntity {
 
     long amount;
 
-    @Temporal(TemporalType.TIMESTAMP)
     LocalDateTime currentTime;
 }
 
