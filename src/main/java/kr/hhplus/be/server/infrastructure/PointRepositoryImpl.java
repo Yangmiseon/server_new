@@ -13,6 +13,7 @@ public class PointRepositoryImpl implements PointRepository{
 
     @Override
     public PointEntity findByUserId(String userId) {
+
         return jpaPointRepository.findByUserId(userId);
     }
 

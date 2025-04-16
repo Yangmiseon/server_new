@@ -16,21 +16,16 @@ import java.time.LocalDateTime;
 public class CouponEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private int id;
+    private String couponId; //쿠폰아이디
 
-    private String couponId;
+    private String couponName; //쿠폰이름
 
-    private String couponName;
+    private CouponType type; // 쿠폰타입(정률/할인)
 
-    private String couponDesc;
-
-    private CouponType type;
-
-    private LocalDateTime issueDate;
+    private LocalDateTime issueDate; // 쿠폰발급일
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private UserEntity userId;
+    private UserEntity userId; //쿠폰발급대상
 }

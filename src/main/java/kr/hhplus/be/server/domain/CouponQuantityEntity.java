@@ -15,14 +15,14 @@ import lombok.ToString;
 public class CouponQuantityEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    @Column(nullable = false)
+    private String couponId;
 
-    CouponType type;
+    private CouponType type;
 
-    int couponTotalQuantity; //총수량
+    private int couponTotalQuantity; //총수량
 
-    int couponStockQuantity; //남은수량
+    private int couponStockQuantity; //남은수량
 
 
 }
