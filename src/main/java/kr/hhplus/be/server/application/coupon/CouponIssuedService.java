@@ -1,23 +1,22 @@
 package kr.hhplus.be.server.application;
 
 import kr.hhplus.be.server.domain.CouponEntity;
-import kr.hhplus.be.server.infrastructure.CouponIssuedRepository;
+import kr.hhplus.be.server.infrastructure.CouponRepository;
 import lombok.*;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class CouponIssuedService {
-    private final CouponIssuedRepository couponIssuedRepository;
+    private final CouponRepository couponRepository;
 
     @Transactional
-    public void post(OrderRequestDto.CouponRequestDto couponRequestDto){
-        List<CouponEntity> all = couponIssuedRepository.findAll();
-
-
+    public void post(CouponRequestDto couponRequestDto){
+        List<CouponEntity> all = Collections.singletonList(couponRepository.save(couponRequestDto.toModel()));
     }
 }
