@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.domain;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import kr.hhplus.be.server.domain.base.ItemEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
@@ -55,4 +56,10 @@ public class PaymentEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     PayStatusType type;
+
+    LocalDateTime orderCurrentTime;//결제날짜및 시간
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="itemId")
+    ItemEntity itemId;
 }
