@@ -8,7 +8,8 @@ import java.util.List;
 
 @Repository
 public interface ItemRepository extends JpaRepository<ItemEntity, String> {
-    List<ItemEntity> findByItemId(String itemId);
+    ItemEntity findByItemId(String itemId);
+    ItemEntity findByItemIdAndItemQuantity(String itemId, int quantity);
 
 }
 
