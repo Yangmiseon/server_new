@@ -8,17 +8,4 @@ import java.util.List;
 
 public interface JpaPointHistoryRepository extends JpaRepository<PointHistoryEntity, Long> {
     List<PointHistoryEntity> findByUserId(String userId);
-
-    @Repository
-    class OrderItemRepositoryImpl {
-        private final JpaCouponRepository.JpaOrderItemRepository jpaOrderItemRepository;
-
-        public OrderItemRepositoryImpl(JpaCouponRepository.JpaOrderItemRepository jpaOrderItemRepository) {
-            this.jpaOrderItemRepository = jpaOrderItemRepository;
-        }
-    }
-
-    interface OrderItemRepository {
-
-    }
 }

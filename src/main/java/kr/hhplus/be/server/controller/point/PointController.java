@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ class PointController {
 
     //포인트 조회
     @GetMapping("/point/pointTotal")
-    public long  getUserPoint(@PathVariable String userId){
+    public BigDecimal getUserPoint(@PathVariable String userId){
 
         return pointService.getUserPoint(userId);
     }
@@ -40,6 +41,6 @@ class PointController {
             @PathVariable String userId,
             @RequestParam long amount
     ) {
-        return pointService.chargeUserPoint(userId,amount);
+        return pointService.chargeUserPoint(userId, BigDecimal.valueOf(amount));
     }
 }
