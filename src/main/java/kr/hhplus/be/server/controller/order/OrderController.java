@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.controller;
 
+import kr.hhplus.be.server.application.OrderFacade;
 import kr.hhplus.be.server.application.OrderRequestDto;
 import kr.hhplus.be.server.application.OrderService;
 import kr.hhplus.be.server.domain.OrderEntity;
@@ -13,9 +14,12 @@ import java.util.Optional;
 @RequestMapping("/order")
 public class OrderController {
     private final OrderService orderService;
+    private final OrderFacade orderFacade;
 
-    public OrderController (OrderService orderService){
+    public OrderController (OrderService orderService, OrderFacade orderFacade){
+
         this.orderService=orderService;
+        this.orderFacade=orderFacade;
     }
 
     //주문한건 조회
@@ -31,9 +35,11 @@ public class OrderController {
         return orderService.findByUserId(userId);
     }
 
+    //주문이 들어오면 오더 파사드로 넘긴다.
     @PostMapping("/status")
     public OrderEntity order (@RequestBody OrderRequestDto request){
-        return orderService.request(request);
+
+        return orderFacade.placeOrder(request);
     }
 
 }

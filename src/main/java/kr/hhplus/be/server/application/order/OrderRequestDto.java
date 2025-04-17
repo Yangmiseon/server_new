@@ -6,6 +6,7 @@ import kr.hhplus.be.server.domain.UserEntity;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,21 +19,8 @@ public class OrderRequestDto {
     private BigDecimal totalPrice;
     private BigDecimal pointUsed;
 
-    @Getter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    public static class CouponRequestDto {
-        private int id;
-        private String couponId;
-        private UserEntity userId;
+    private List<OrderItemRequestDto> items;
 
-        public CouponEntity toModel(){
-            return CouponEntity.builder()
-                    .id(id)
-                    .couponId(couponId)
-                    .userId(userId)
-                    .build();
-        }
-    }
+
 }
+

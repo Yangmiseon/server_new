@@ -30,4 +30,9 @@ public class OrderRepositoryImpl implements OrderRepository{
     public List<OrderEntity> findByUserIdOrderByOrderCurrentTimeDesc(String userId){
         return jpaOrderRepository.findByUserIdOrderByOrderCurrentTimeDesc(userId);
     }
+
+    @Override
+     public Optional<OrderEntity> findByOrderId(String orderId) {
+        return jpaOrderRepository.findById(orderId);
+    }
 }
