@@ -1,7 +1,6 @@
 package kr.hhplus.be.server.application;
 
 import kr.hhplus.be.server.domain.CouponEntity;
-import kr.hhplus.be.server.domain.CouponRequestDto;
 import kr.hhplus.be.server.infrastructure.CouponIssuedRepository;
 import lombok.*;
 import org.springframework.stereotype.*;
@@ -16,7 +15,7 @@ public class CouponIssuedService {
     private final CouponIssuedRepository couponIssuedRepository;
 
     @Transactional
-    public void post(CouponRequestDto couponRequestDto){
+    public void post(OrderRequestDto.CouponRequestDto couponRequestDto){
         List<CouponEntity> all = couponIssuedRepository.findAll();
 
 

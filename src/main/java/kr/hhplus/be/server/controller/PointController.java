@@ -21,21 +21,21 @@ class PointController {
     }
 
     //포인트 조회
-    @GetMapping("/{userId}/pointTotal")
+    @GetMapping("/point/pointTotal")
     public long  getUserPoint(@PathVariable String userId){
 
         return pointService.getUserPoint(userId);
     }
 
     //포인트 이력 조회
-    @GetMapping("/{userId}/pointHistory")
+    @GetMapping("/point/pointHistory")
     public List<PointHistoryEntity> getPointHistoryEntityList (@PathVariable String userId){
 
         return pointService.getUserPointHistory(userId);
     }
 
     //포인트 충전
-    @PatchMapping("{userId}/charge")
+    @PatchMapping("/point/charge")
     public PointEntity charge(
             @PathVariable String userId,
             @RequestParam long amount

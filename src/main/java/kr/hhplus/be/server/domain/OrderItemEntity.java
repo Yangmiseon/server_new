@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @ToString
@@ -21,7 +23,7 @@ public class OrderItemEntity {
 
     int orderItemQuantity; //주문수량
 
-    long orderItemPrice; //상품가격
+    BigDecimal orderItemPrice; //상품가격
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="orderId")
