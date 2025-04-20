@@ -1,6 +1,6 @@
 package kr.hhplus.be.server.point;
 
-import kr.hhplus.be.server.domain.PointEntity;
+import kr.hhplus.be.server.domain.point.PointEntity;
 
 public class Main {
     public static void main(String[] args) {

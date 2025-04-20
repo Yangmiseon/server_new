@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.pay;
 /*
 IN_PROGRESS   결제중
 PENDING       결제대기

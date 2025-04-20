@@ -1,11 +1,11 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.point;
 
-import kr.hhplus.be.server.domain.PointHistoryEntity;
-import kr.hhplus.be.server.infrastructure.PointHistoryRepository;
-import kr.hhplus.be.server.infrastructure.PointRepository;
-import kr.hhplus.be.server.domain.TransactionType;
+import kr.hhplus.be.server.domain.point.PointHistoryEntity;
+import kr.hhplus.be.server.infrastructure.point.PointHistoryRepository;
+import kr.hhplus.be.server.infrastructure.point.PointRepository;
+import kr.hhplus.be.server.domain.point.TransactionType;
 import org.springframework.stereotype.Service;
-import kr.hhplus.be.server.domain.PointEntity;
+import kr.hhplus.be.server.domain.point.PointEntity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

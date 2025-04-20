@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.order;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,7 +11,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 

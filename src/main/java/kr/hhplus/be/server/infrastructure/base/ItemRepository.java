@@ -1,10 +1,8 @@
-package kr.hhplus.be.server.infrastructure;
+package kr.hhplus.be.server.infrastructure.base;
 
-import kr.hhplus.be.server.domain.ItemEntity;
+import kr.hhplus.be.server.domain.base.ItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface ItemRepository extends JpaRepository<ItemEntity, String> {

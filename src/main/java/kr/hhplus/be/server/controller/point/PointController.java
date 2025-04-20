@@ -1,8 +1,8 @@
-package kr.hhplus.be.server.controller;
+package kr.hhplus.be.server.controller.point;
 
-import kr.hhplus.be.server.application.PointService;
-import kr.hhplus.be.server.domain.PointEntity;
-import kr.hhplus.be.server.domain.PointHistoryEntity;
+import kr.hhplus.be.server.application.point.PointService;
+import kr.hhplus.be.server.domain.point.PointEntity;
+import kr.hhplus.be.server.domain.point.PointHistoryEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;

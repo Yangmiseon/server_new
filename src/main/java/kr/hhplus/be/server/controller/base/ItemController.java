@@ -1,9 +1,8 @@
-package kr.hhplus.be.server.controller;
+package kr.hhplus.be.server.controller.base;
 
-import kr.hhplus.be.server.application.ItemService;
-import kr.hhplus.be.server.domain.ItemEntity;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import kr.hhplus.be.server.application.base.ItemService;
+import kr.hhplus.be.server.domain.base.ItemEntity;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/item")
 public class ItemController {
-    private static final Logger logger = LoggerFactory.getLogger(PointController.class);
     private ItemService itemService;
 
     public ItemController(ItemService itemService){

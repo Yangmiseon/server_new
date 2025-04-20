@@ -1,6 +1,6 @@
-package kr.hhplus.be.server.infrastructure;
+package kr.hhplus.be.server.infrastructure.order;
 
-import kr.hhplus.be.server.domain.OrderEntity;
+import kr.hhplus.be.server.domain.order.OrderEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,5 +34,10 @@ public class OrderRepositoryImpl implements OrderRepository{
     @Override
      public Optional<OrderEntity> findByOrderId(String orderId) {
         return jpaOrderRepository.findById(orderId);
+    }
+
+    @Override
+    public OrderEntity findByOrderIdOnly(String orderId) {
+        return jpaOrderRepository.findByOrderIdOnly(orderId);
     }
 }

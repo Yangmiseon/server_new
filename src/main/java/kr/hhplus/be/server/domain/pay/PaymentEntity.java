@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.pay;
 
 import jakarta.persistence.*;
 import kr.hhplus.be.server.domain.base.ItemEntity;
@@ -43,15 +43,18 @@ public class PaymentEntity {
     String orderId;
 
     @Column(nullable = false)
-    String userCouponYN;
+    String userCouponUseYN; //쿠폰사용여부
 
-    String userCouponId;
+    String userCouponId; //사용한 쿠폰아이디
 
     @Column(nullable = false)
     BigDecimal pointTotal; //사용자가 사용할 포인트
 
     @Column(nullable = false)
-    BigDecimal finalPrice;
+    BigDecimal discountTotal; //사용자가 할인받은 금액
+
+    @Column(nullable = false)
+    BigDecimal finalPrice; // 사용자가 결제한 최종금액
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

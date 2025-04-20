@@ -1,20 +1,37 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.pay;
 
+import kr.hhplus.be.server.application.base.UserService;
+import kr.hhplus.be.server.application.coupon.CouponService;
+import kr.hhplus.be.server.domain.coupon.CouponEntity;
 import kr.hhplus.be.server.domain.order.OrderEntity;
-import kr.hhplus.be.server.domain.PaymentEntity;
+import kr.hhplus.be.server.domain.pay.PaymentEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
 
 @RequiredArgsConstructor
 @Component
 public class PaymentFacade {
 
     private final PaymentService paymentService;
+    private final CouponService couponService;
+    private final UserService userService;
 
-    public PaymentEntity placePay(OrderEntity order) {
+    public PaymentEntity placePay(String orderId, String userId) {
 
-        //결제
-        paymentService.confirmPayment(order.getOrderId());
-        return null;
+        //쿠폰여부 확인하기
+        String couponYn = userService.findByUserId(userId);
+
+        //쿠폰 할인율/할인금액확인(y면 할인률/할인금액으로, n이면 0으로)
+        CouponEntity coupon = couponService.getCoupon(userId);
+
+        //결제하기
+        paymentService.confirmPayment(orderId,coupon);
+
+        // 결제생성
+
+
+        return null;//완료리턴보내기
     }
 }

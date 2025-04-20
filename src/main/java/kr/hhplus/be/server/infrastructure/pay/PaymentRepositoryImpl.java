@@ -1,6 +1,6 @@
-package kr.hhplus.be.server.infrastructure;
+package kr.hhplus.be.server.infrastructure.pay;
 
-import kr.hhplus.be.server.domain.PaymentEntity;
+import kr.hhplus.be.server.domain.pay.PaymentEntity;
 import org.springframework.stereotype.Repository;
 
 @Repository

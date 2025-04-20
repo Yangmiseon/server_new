@@ -1,6 +1,8 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.order;
 
-import kr.hhplus.be.server.domain.OrderEntity;
+import kr.hhplus.be.server.application.pay.PaymentFacade;
+import kr.hhplus.be.server.application.point.PointService;
+import kr.hhplus.be.server.domain.order.OrderEntity;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +32,12 @@ public class OrderFacade {
 
         //주문생성및 저장
         OrderEntity order = orderService.createOrderItems(request, point, total);
-        // 주문이 생성되면 결제하기
-        return paymentFacade.placePay(order);
+
+        //결제요청호출
+        paymentFacade.placePay(order.getOrderId(),order.getUserId());
+
+        // 주문이 생성 및 저장되면 생성된 주문 반환
+        return order;
     }
+
 }

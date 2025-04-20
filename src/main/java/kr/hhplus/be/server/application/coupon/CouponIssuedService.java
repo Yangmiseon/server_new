@@ -1,7 +1,7 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.coupon;
 
-import kr.hhplus.be.server.domain.CouponEntity;
-import kr.hhplus.be.server.infrastructure.CouponRepository;
+import kr.hhplus.be.server.domain.coupon.CouponEntity;
+import kr.hhplus.be.server.infrastructure.coupon.CouponRepository;
 import lombok.*;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.Transactional;

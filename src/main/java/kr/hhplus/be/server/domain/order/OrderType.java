@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.order;
 /*
     REQUESTED     주문요청
     PROCESSING    주문처리중

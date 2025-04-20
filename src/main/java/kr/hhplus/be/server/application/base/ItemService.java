@@ -1,7 +1,7 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.base;
 
-import kr.hhplus.be.server.domain.ItemEntity;
-import kr.hhplus.be.server.infrastructure.ItemRepository;
+import kr.hhplus.be.server.domain.base.ItemEntity;
+import kr.hhplus.be.server.infrastructure.base.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

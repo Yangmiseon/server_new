@@ -1,9 +1,9 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.order;
 
-import kr.hhplus.be.server.domain.ItemEntity;
-import kr.hhplus.be.server.infrastructure.ItemRepository;
-import kr.hhplus.be.server.infrastructure.OrderItemRepository;
-import kr.hhplus.be.server.infrastructure.PointRepository;
+import kr.hhplus.be.server.domain.base.ItemEntity;
+import kr.hhplus.be.server.infrastructure.base.ItemRepository;
+import kr.hhplus.be.server.infrastructure.order.OrderItemRepository;
+import kr.hhplus.be.server.infrastructure.point.PointRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

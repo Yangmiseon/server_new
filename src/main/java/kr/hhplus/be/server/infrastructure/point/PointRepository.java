@@ -1,7 +1,6 @@
-package kr.hhplus.be.server.infrastructure;
+package kr.hhplus.be.server.infrastructure.point;
 
-import kr.hhplus.be.server.domain.PointEntity;
-import org.springframework.stereotype.Repository;
+import kr.hhplus.be.server.domain.point.PointEntity;
 
 
 public interface  PointRepository {

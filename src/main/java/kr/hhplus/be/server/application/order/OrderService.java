@@ -1,9 +1,11 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.order;
 
-import kr.hhplus.be.server.domain.*;
-import kr.hhplus.be.server.infrastructure.ItemRepository;
-import kr.hhplus.be.server.infrastructure.OrderRepository;
-import kr.hhplus.be.server.infrastructure.PointRepository;
+import kr.hhplus.be.server.domain.order.OrderEntity;
+import kr.hhplus.be.server.domain.order.OrderItemEntity;
+import kr.hhplus.be.server.domain.order.OrderType;
+import kr.hhplus.be.server.infrastructure.base.ItemRepository;
+import kr.hhplus.be.server.infrastructure.order.OrderRepository;
+import kr.hhplus.be.server.infrastructure.point.PointRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -23,13 +25,14 @@ public class OrderService {
         this.itemRepository = itemRepository;
     }
 
+    //주문요청확인
     public void validateRequestType(OrderType type) {
         if (type  != OrderType.REQUESTED) {
             throw new IllegalArgumentException("주문요청이 아닙니다.");
         }
     }
 
-    public OrderEntity createOrderItems(OrderRequestDto request,BigDecimal point, BigDecimal total) {
+    public OrderEntity createOrderItems(OrderRequestDto request, BigDecimal point, BigDecimal total) {
         //주문생성
         OrderEntity order = new OrderEntity();
         order.setType(OrderType.REQUESTED);

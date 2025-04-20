@@ -1,8 +1,6 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.order;
 
-import kr.hhplus.be.server.domain.CouponEntity;
-import kr.hhplus.be.server.domain.OrderType;
-import kr.hhplus.be.server.domain.UserEntity;
+import kr.hhplus.be.server.domain.order.OrderType;
 import lombok.*;
 
 import java.math.BigDecimal;

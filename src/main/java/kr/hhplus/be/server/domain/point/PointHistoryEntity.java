@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.point;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,7 +8,6 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter

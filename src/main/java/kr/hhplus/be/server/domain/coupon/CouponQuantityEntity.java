@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.coupon;
 
 import jakarta.persistence.*;
 import lombok.Getter;

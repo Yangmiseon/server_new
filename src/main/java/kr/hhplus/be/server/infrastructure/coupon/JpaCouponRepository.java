@@ -1,11 +1,9 @@
-package kr.hhplus.be.server.infrastructure;
+package kr.hhplus.be.server.infrastructure.coupon;
 
-import kr.hhplus.be.server.domain.CouponEntity;
+import kr.hhplus.be.server.domain.coupon.CouponEntity;
 import kr.hhplus.be.server.domain.order.OrderItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JpaCouponRepository extends JpaRepository<CouponEntity, String> {
-    interface JpaOrderItemRepository extends JpaRepository<OrderItemEntity, String> {
-
-    }
+    CouponEntity findByUserId(String Userid);
 }

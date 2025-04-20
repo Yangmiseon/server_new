@@ -1,13 +1,10 @@
-package kr.hhplus.be.server.controller;
+package kr.hhplus.be.server.controller.base;
 
-import kr.hhplus.be.server.application.UserService;
-import kr.hhplus.be.server.domain.UserEntity;
-import kr.hhplus.be.server.infrastructure.UserRepository;
+import kr.hhplus.be.server.application.base.UserService;
+import kr.hhplus.be.server.domain.base.UserEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")

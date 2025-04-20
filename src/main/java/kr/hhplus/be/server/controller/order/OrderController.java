@@ -1,10 +1,9 @@
-package kr.hhplus.be.server.controller;
+package kr.hhplus.be.server.controller.order;
 
-import kr.hhplus.be.server.application.OrderFacade;
-import kr.hhplus.be.server.application.OrderRequestDto;
-import kr.hhplus.be.server.application.OrderService;
-import kr.hhplus.be.server.domain.OrderEntity;
-import kr.hhplus.be.server.domain.OrderType;
+import kr.hhplus.be.server.application.order.OrderFacade;
+import kr.hhplus.be.server.application.order.OrderRequestDto;
+import kr.hhplus.be.server.application.order.OrderService;
+import kr.hhplus.be.server.domain.order.OrderEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

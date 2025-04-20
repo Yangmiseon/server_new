@@ -1,9 +1,10 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.coupon;
 
 import jakarta.persistence.*;
 import kr.hhplus.be.server.domain.base.UserEntity;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
@@ -12,7 +13,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Builder(toBuilder = true)
 @Table(name ="coupon")
 public class CouponEntity {
 
@@ -23,6 +23,8 @@ public class CouponEntity {
     private String couponName; //쿠폰이름
 
     private CouponType type; // 쿠폰타입(정률/할인)
+
+    private BigDecimal couponDiscount;
 
     private LocalDateTime issueDate; // 쿠폰발급일
 
