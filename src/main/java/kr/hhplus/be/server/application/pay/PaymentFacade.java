@@ -23,11 +23,16 @@ public class PaymentFacade {
         //쿠폰여부 확인하기
         String couponYn = userService.findByUserId(userId);
 
-        //쿠폰 할인율/할인금액확인(y면 할인률/할인금액으로, n이면 0으로)
+        //쿠폰 정보 조회
         CouponEntity coupon = couponService.getCoupon(userId);
 
         //결제하기
-        paymentService.confirmPayment(orderId,coupon);
+        if(coupon == null) {
+            paymentService.confirmPayment(orderId);
+        }else{
+            paymentService.confirmPaymentCoupon(orderId,coupon);
+        }
+
 
         // 결제생성
 

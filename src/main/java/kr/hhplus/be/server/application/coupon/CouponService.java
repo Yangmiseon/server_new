@@ -23,4 +23,12 @@ public class CouponService {
         return couponRepository.findByUserId(userId);
     }
 
+    //쿠폰사용금액조회
+    public BigDecimal calculateDiscountedPrice(
+            CouponType couponType, // RATE or AMOUNT
+            BigDecimal totalPrice,       // 원래 가격
+            int discountValue      // 퍼센트 or 금액
+    ) {
+        return couponType.applyDiscount(totalPrice, discountValue);
+    }
 }

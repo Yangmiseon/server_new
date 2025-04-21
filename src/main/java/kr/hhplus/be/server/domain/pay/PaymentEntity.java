@@ -48,9 +48,6 @@ public class PaymentEntity {
     String userCouponId; //사용한 쿠폰아이디
 
     @Column(nullable = false)
-    BigDecimal pointTotal; //사용자가 사용할 포인트
-
-    @Column(nullable = false)
     BigDecimal discountTotal; //사용자가 할인받은 금액
 
     @Column(nullable = false)

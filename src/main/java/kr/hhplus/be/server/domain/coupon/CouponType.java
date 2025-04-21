@@ -1,19 +1,21 @@
 package kr.hhplus.be.server.domain.coupon;
 
+import java.math.BigDecimal;
+
 public enum CouponType {
-    RATE{
+    RATE {
         @Override
-        public  int applyDiscount(long totalPrice, int discountValue){
-            return (int) (totalPrice*(1 - (discountValue/100.0)));
+        public BigDecimal applyDiscount(BigDecimal totalPrice, int discountValue) {
+            BigDecimal discountRate = BigDecimal.valueOf(discountValue).divide(BigDecimal.valueOf(100));
+            return totalPrice.multiply(BigDecimal.ONE.subtract(discountRate));
         }
     },
-    AMOUNT{
+    AMOUNT {
         @Override
-        public int applyDiscount(long totalPrice, int discountValue){
-            return (int) (totalPrice-discountValue);
+        public BigDecimal applyDiscount(BigDecimal totalPrice, int discountValue) {
+            return totalPrice.subtract(BigDecimal.valueOf(discountValue));
         }
     };
 
-    // 공통 메서드 선언
-    public abstract int applyDiscount(long totalPrice, int discountValue);
+    public abstract BigDecimal applyDiscount(BigDecimal totalPrice, int discountValue);
 }

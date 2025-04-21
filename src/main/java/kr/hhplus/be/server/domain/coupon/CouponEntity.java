@@ -24,7 +24,7 @@ public class CouponEntity {
 
     private CouponType type; // 쿠폰타입(정률/할인)
 
-    private BigDecimal couponDiscount;
+    private int couponDiscount;
 
     private LocalDateTime issueDate; // 쿠폰발급일
 
