@@ -1,8 +1,11 @@
 package kr.hhplus.be.server.domain;
 
-import kr.hhplus.be.server.application.PointService;
-import kr.hhplus.be.server.infrastructure.PointHistoryRepository;
-import kr.hhplus.be.server.infrastructure.PointRepository;
+import kr.hhplus.be.server.application.point.PointService;
+import kr.hhplus.be.server.domain.point.PointEntity;
+import kr.hhplus.be.server.domain.point.PointHistoryEntity;
+import kr.hhplus.be.server.domain.point.TransactionType;
+import kr.hhplus.be.server.infrastructure.point.PointHistoryRepository;
+import kr.hhplus.be.server.infrastructure.point.PointRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -36,13 +40,13 @@ class PointTest {
         String userId = "abc";
         PointEntity fakePoint = new PointEntity();
         fakePoint.setUserId(userId);
-        fakePoint.setPointTotal(1000L);
+        fakePoint.setPointTotal(BigDecimal.valueOf(1000));
 
         // 유저아이디로 포인트를 조회할때
         when(pointRepository.findByUserId(userId)).thenReturn(fakePoint);
 
         // 결과는 1000이 조회돼야 한다.
-        long result = pointService.getUserPoint(userId);
+        BigDecimal result = pointService.getUserPoint(userId);
 
         // 조회되는값이 1000과 같은가?
         assertEquals(1000L, result);
@@ -57,13 +61,13 @@ class PointTest {
         PointHistoryEntity history1 = new PointHistoryEntity();
         history1.setUserId(userId);
         history1.setType(TransactionType.CHARGE);
-        history1.setAmount(1000);
+        history1.setAmount(BigDecimal.valueOf(1000));
         history1.setCurrentTime(LocalDateTime.now());
 
         PointHistoryEntity history2 = new PointHistoryEntity();
         history2.setUserId(userId);
         history2.setType(TransactionType.USE);
-        history2.setAmount(500);
+        history2.setAmount(BigDecimal.valueOf(500));
         history2.setCurrentTime(LocalDateTime.now());
 
         List<PointHistoryEntity> fakeHistoryList = List.of(history1, history2);
@@ -90,12 +94,12 @@ class PointTest {
 
         PointEntity fakePoint = new PointEntity();
         fakePoint.setUserId(userId);
-        fakePoint.setPointTotal(1000L);
+        fakePoint.setPointTotal(BigDecimal.valueOf(1000));
 
         // when & then: 예외가 발생하는지 확인
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> pointService.chargeUserPoint(userId, amount)
+                () -> pointService.chargeUserPoint(userId, BigDecimal.valueOf(amount))
         );
 
         // 예외 메시지 확인
@@ -111,11 +115,11 @@ class PointTest {
 
         PointEntity fakePoint = new PointEntity();
         fakePoint.setUserId(userId);
-        fakePoint.setPointTotal(1000L);
+        fakePoint.setPointTotal(BigDecimal.valueOf(1000));
 
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> pointService.chargeUserPoint(userId, amount)
+                () -> pointService.chargeUserPoint(userId, BigDecimal.valueOf(amount))
         );
 
         assertEquals("충전 금액은 10원 단위여야 합니다.", exception.getMessage());
@@ -130,7 +134,7 @@ class PointTest {
 
         PointEntity fakePoint = new PointEntity();
         fakePoint.setUserId(userId);
-        fakePoint.setPointTotal(1000L);
+        fakePoint.setPointTotal(BigDecimal.valueOf(1000));
 
         // 현재 포인트 조회 mock
         //when(pointRepository.findByUserId(userId)).thenReturn(fakePoint);
@@ -138,7 +142,7 @@ class PointTest {
         // when & then: 예외가 발생하는지 확인
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> pointService.chargeUserPoint(userId, amount)
+                () -> pointService.chargeUserPoint(userId, BigDecimal.valueOf(amount))
         );
 
         // 예외 메시지 확인
@@ -154,7 +158,7 @@ class PointTest {
         // 현재 포인트 만들기
         PointEntity fakePoint = new PointEntity();
         fakePoint.setUserId(userId);
-        fakePoint.setPointTotal(1000L);
+        fakePoint.setPointTotal(BigDecimal.valueOf(1000));
 
         // 포인트를 더해서 업데이트
         long newPoint = 1000L + amount;
@@ -162,12 +166,12 @@ class PointTest {
         // 포인트 업데이트
         PointEntity newFakePoint = new PointEntity();
         newFakePoint.setUserId(userId);
-        newFakePoint.setPointTotal(newPoint);
+        newFakePoint.setPointTotal(BigDecimal.valueOf(newPoint));
 
         // 충전된 내역을 히스토리에 인서트
         PointHistoryEntity fakeHistory = new PointHistoryEntity();
         fakeHistory.setUserId(userId);
-        fakeHistory.setAmount(newPoint);
+        fakeHistory.setAmount(BigDecimal.valueOf(newPoint));
         fakeHistory.setType(TransactionType.CHARGE);
         fakeHistory.setCurrentTime(LocalDateTime.now());
 
@@ -176,7 +180,7 @@ class PointTest {
         when(pointRepository.save(any(PointEntity.class))).thenReturn(newFakePoint);
 
         // 결과는 새로 업데이트된 포인트가 조회돼야 한다.
-        PointEntity result = pointService.chargeUserPoint(userId, amount);
+        PointEntity result = pointService.chargeUserPoint(userId, BigDecimal.valueOf(amount));
         assertEquals(newPoint, result.getPointTotal());
 
         // 포인트 히스토리 인서트
