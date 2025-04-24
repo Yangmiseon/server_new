@@ -1,7 +1,10 @@
 package kr.hhplus.be.server.infrastructure.coupon;
 
 import kr.hhplus.be.server.domain.coupon.CouponEntity;
+import kr.hhplus.be.server.domain.coupon.CouponSpecEntity;
 import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
 
 @Repository
 public class CouponRepositoryImpl implements CouponRepository{
@@ -19,11 +22,14 @@ public class CouponRepositoryImpl implements CouponRepository{
 
     @Override
     public CouponEntity findByUserId(String Userid) {
+
         return jpaCouponRepository.findByUserId(Userid);
     }
 
     @Override
     public CouponEntity update(CouponEntity coupon) {
+
         return jpaCouponRepository.save(coupon);
     }
+
 }

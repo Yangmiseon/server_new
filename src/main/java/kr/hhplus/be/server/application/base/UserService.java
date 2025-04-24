@@ -18,5 +18,7 @@ public class UserService {
         return userRepository.findByUserId(userId).getUserCouponYN();
     }
 
-
+    public UserEntity createUser(UserEntity user) {
+        return null;
+    }
 }

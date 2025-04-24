@@ -2,6 +2,8 @@ package kr.hhplus.be.server.infrastructure.coupon;
 
 import kr.hhplus.be.server.domain.coupon.CouponEntity;
 
+import java.util.UUID;
+
 
 public interface CouponRepository {
     // 어떤 종류의 쿠폰을 발급할건지 관리자가 등록

@@ -36,23 +36,21 @@ public class PaymentService {
         this.pointService = pointService;
     }
     //쿠폰있을 때
-    public OrderEntity confirmPaymentCoupon(String orderId, CouponEntity coupon) {
-        OrderEntity order = orderRepository.findByOrderIdOnly(orderId);//오더불러오기
-        BigDecimal totalPrice = order.getTotalPrice(); //전체금액
-        CouponType type = coupon.getType(); // 쿠폰타입
-        int discount = coupon.getCouponDiscount(); // 쿠폰할인값(%or금액)
-        //최종금액
-        BigDecimal finalPrice = couponService.calculateDiscountedPrice(type,totalPrice,discount);
-        //할인 된 금액
-        BigDecimal discountTotal = finalPrice.multiply(BigDecimal.valueOf(discount));
-        // 포인트금애
-        pointService.getUserPoint(coupon.getUserId());
-        PaymentEntity payment = new PaymentEntity();
-        payment.setUserCouponUseYN("Y"); //쿠폰사용
-        payment.setUserCouponId(coupon.getCouponId()); //사용쿠폰아이디
-        payment.setBalancePoint();
-        return null;
-    }
+//    public OrderEntity confirmPaymentCoupon(String orderId, CouponEntity coupon) {
+//        OrderEntity order = orderRepository.findByOrderIdOnly(orderId);//오더불러오기
+//        BigDecimal totalPrice = order.getTotalPrice(); //전체금액
+//        //최종금액
+//        BigDecimal finalPrice = couponService.calculateDiscountedPrice(type,totalPrice,discount);
+//        //할인 된 금액
+//        BigDecimal discountTotal = finalPrice.multiply(BigDecimal.valueOf(discount));
+//        // 포인트금애
+//        pointService.getUserPoint(coupon.getUserId());
+//        PaymentEntity payment = new PaymentEntity();
+//        payment.setUserCouponUseYN("Y"); //쿠폰사용
+//        payment.setUserCouponId(coupon.getCouponId()); //사용쿠폰아이디
+//        payment.setBalancePoint();
+//        return null;
+//    }
 
     //쿠폰없을 때
     public OrderEntity confirmPayment(String orderId) {

@@ -57,13 +57,13 @@ class ServerApplicationTests {
 		history1.setUserId(userId);
 		history1.setType(TransactionType.CHARGE);
 		history1.setAmount(BigDecimal.valueOf(1000));
-		history1.setCurrentTime(new Date());
+		history1.setCurrentTime(LocalDateTime.now());
 
 		PointHistoryEntity history2 = new PointHistoryEntity();
 		history2.setUserId(userId);
 		history2.setType(TransactionType.USE);
 		history2.setAmount(BigDecimal.valueOf(500));
-		history2.setCurrentTime(new Date());
+		history2.setCurrentTime(LocalDateTime.now());
 
 		List<PointHistoryEntity> fakeHistoryList = List.of(history1, history2);
 
@@ -124,19 +124,19 @@ class ServerApplicationTests {
 		fakeHistory.setUserId(userId);
 		fakeHistory.setAmount(BigDecimal.valueOf(newPoint));
 		fakeHistory.setType(TransactionType.CHARGE);
-		fakeHistory.setCurrentTime(new Date());
+		fakeHistory.setCurrentTime(LocalDateTime.now());
 
 		// 포인트 조회 시
 		when(pointRepository.findByUserId(userId)).thenReturn(fakePoint);
-		doReturn(newFakePoint).when(pointRepository).insertAndUpdate(userId, newPoint);
+		//doReturn(newFakePoint).when(pointRepository).insertAndUpdate(userId, newPoint);
 
 		// 결과는 새로 업데이트된 포인트가 조회돼야 한다.
 		PointEntity result = pointService.chargeUserPoint(userId, BigDecimal.valueOf(amount));
 		assertEquals(newPoint, result.getPointTotal());
 
 		// 포인트 히스토리 인서트
-		doReturn(fakeHistory).when(pointHistoryRepository)
-				.insert(eq(userId), eq(newPoint), eq(TransactionType.CHARGE), any(LocalDateTime.class));
+		//doReturn(fakeHistory).when(pointHistoryRepository)
+		//		.insert(eq(userId), eq(newPoint), eq(TransactionType.CHARGE), any(LocalDateTime.class));
 
 		// 포인트 히스토리 조회
 		when(pointHistoryRepository.findByUserId(userId)).thenReturn(List.of(fakeHistory));

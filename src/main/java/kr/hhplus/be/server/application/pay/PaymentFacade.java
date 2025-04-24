@@ -26,12 +26,12 @@ public class PaymentFacade {
         //쿠폰 정보 조회
         CouponEntity coupon = couponService.getCoupon(userId);
 
-        //결제하기
-        if(coupon == null) {
-            paymentService.confirmPayment(orderId);
-        }else{
-            paymentService.confirmPaymentCoupon(orderId,coupon);
-        }
+//        //결제하기
+//        if(coupon == null) {
+//            paymentService.confirmPayment(orderId);
+//        }else{
+//            paymentService.confirmPaymentCoupon(orderId,coupon);
+//        }
 
 
         // 결제생성

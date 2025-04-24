@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,18 +18,13 @@ import java.time.LocalDateTime;
 public class CouponEntity {
 
     @Id
-    @Column(nullable = false)
-    private String couponId; //쿠폰아이디
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID couponId; // 발급 시 UUID 생성
 
-    private String couponName; //쿠폰이름
-
-    private CouponType type; // 쿠폰타입(정률/할인)
-
-    private int couponDiscount;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CouponSpecEntity couponSpecEntity;
 
     private LocalDateTime issueDate; // 쿠폰발급일
 
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private UserEntity userId; //쿠폰발급대상
+    private String userId; //쿠폰발급대상
 }
